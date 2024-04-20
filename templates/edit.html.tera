@@ -1,0 +1,38 @@
+{% include "header" %}
+    <p>Editing {{ name }}!</p>
+    <form method="post" action="/rsvp/admin/edit/{{ invite_code }}">
+      <fieldset>
+        <legend>Is the guest attending?</legend>
+        <label><input type="radio" id="rsvp" name="accepted" value="yes" required />Attend</label>
+        <label><input type="radio" id="rsvp" name="accepted" value="no" required />Decline</label>
+        <label><input type="radio" id="rsvp" name="accepted" value="NULL" required />No Reply</label>
+      </fieldset><br />
+      <label>
+        Is their name wrong?<br />
+        <input id="rsvp" name="guest_name" value="{{ name }}" maxlength="100"/>
+      </label><br />
+      <label>
+        Do they have any dietary restrictions?<br />
+        <input id="rsvp" name="guest_dietary_restrictions" value="{{ guest_dietary_restrictions }}" maxlength="100"/>
+      </label><br />
+      <fieldset>
+        <legend>Allow a +1?</legend>
+        {% if plus_one_allowed %}
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="yes" required checked />Yes</label>
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="no" required />No</label>
+        {% else %}
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="yes" required />Yes</label>
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="no" required checked/>No</label>
+        {% endif %}
+      </fieldset><br />
+      <label>
+        +1's name:<br />
+        <input id="rsvp" name="plus_one_name" value="{{ plus_one_name }}" />
+      </label><br />
+      <label>
+        +1's dietary restrictions:<br />
+        <input id="rsvp" name="plus_one_dietary_restrictions" value="{{ plus_one_dietary_restrictions }}" maxlength="100"/>
+      </label><br />
+      <input type="submit" value="Submit" />
+    </form>
+{% include "footer" %}

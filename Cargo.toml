@@ -1,0 +1,21 @@
+[package]
+name = "wedding-rs-vp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rocket = { version = "0.5.0", features = ["secrets"] }
+diesel = { version = "2.1.4", features = ["mysql", "chrono"] }
+serde = "1.0.195"
+chrono = { version = "0.4.31", features = ["serde"] }
+regex = "1.10.2"
+lettre = "0.11"
+rand = "0.8.5"
+
+[dependencies.rocket_dyn_templates]
+version = "0.1.0"
+features = ["tera"]
+
+[dependencies.rocket_db_pools]
+version = "0.1.0"
+features = ["diesel_mysql", "deadpool_redis"]

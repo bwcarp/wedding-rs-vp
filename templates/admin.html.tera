@@ -1,0 +1,61 @@
+{% set total_guests = attending|length + plus_one_count %}
+
+{% include "header" %}
+
+<h2>Guest List</h2>
+<p><a href="/rsvp/admin/add">Add a guest</a></p>
+<hr>
+<h3>Attending: {{ total_guests }} total ({{ plus_one_count }} plus ones)</h3>
+<table cols="3">
+    <tr>
+        <td><b>Invite code</b></td>
+        <td><b>Name</b></td>
+        <td><b>Dietary restrictions</b></td>
+    </tr>
+{% for guest in attending %}
+    <tr>
+        <td><a href="/rsvp/admin/edit/{{ guest.id }}">{{ guest.id }}</a></td>
+        <td>{{ guest.guest_name }}</td>
+        <td>{{ guest.guest_dietary_restrictions }}</td>
+    </tr>
+    {% if guest.plus_one_allowed and guest.plus_one_name != "" %}
+    <tr>
+        <td>+1</td>
+        <td>{{ guest.plus_one_name }}</td>
+        <td>{{ guest.plus_one_dietary_restrictions }}</td>
+    </tr>
+    {% endif %}
+{% endfor %}
+<table>
+
+<h3>Declined</h3>
+<table cols="3">
+    <tr>
+        <td><b>Invite code</b></td>
+        <td><b>Name</b></td>
+    </tr>
+{% for guest in declined %}
+    <tr>
+        <td><a href="/rsvp/admin/edit/{{ guest.id }}">{{ guest.id }}</a></td>
+        <td>{{ guest.guest_name }}</td>
+    </tr>
+{% endfor %}
+<table>
+
+<h3>No Reply</h3>
+<table cols="3">
+    <tr>
+        <td><b>Invite code</b></td>
+        <td><b>Name</b></td>
+    </tr>
+{% for guest in noreply %}
+    <tr>
+        <td><a href="/rsvp/admin/edit/{{ guest.id }}">{{ guest.id }}</a></td>
+        <td>{{ guest.guest_name }}</td>
+    </tr>
+{% endfor %}
+<table>
+
+
+
+{% include "footer" %}

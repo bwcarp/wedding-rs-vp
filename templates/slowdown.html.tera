@@ -1,0 +1,3 @@
+{% include "header" %}
+<p>Whoa there buddy! You changed your invite 5 times today. You are suspended from making changes for 24 hours. If you need help, reach out to Blake.</p>
+{% include "footer" %}

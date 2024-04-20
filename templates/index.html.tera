@@ -1,0 +1,8 @@
+{% include "header" %}
+    <p>Please enter the invite code included with your wedding invitation.</p>
+        <form action="/rsvp/authenticate" method="post">
+            <label for="name">Invite Code:</label>
+            <input type="text" id="invitation" name="code" maxlength="14" />
+            <input type="submit" value="Submit RSVP" />
+        </form>
+{% include "footer" %}

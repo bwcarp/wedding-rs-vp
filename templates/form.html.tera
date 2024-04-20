@@ -1,0 +1,26 @@
+{% include "header" %}
+    <p>Greetings {{ name }}!</p>
+    <form method="post" action="/rsvp/submit">
+      <fieldset>
+        <legend>Will you be attending?</legend>
+        <label><input type="radio" id="rsvp" name="accepted" value="yes" required />Attend</label>
+        <label><input type="radio" id="rsvp" name="accepted" value="no" required />Decline</label>
+      </fieldset><br />
+      <label>
+        Do you have any dietary restrictions?<br />
+        <input id="rsvp" name="guest_dietary_restrictions" value="{{ guest_dietary_restrictions }}" maxlength="100"/>
+      </label><br />
+      {% if plus_one_allowed %}
+      <label>
+        Guest's name:<br />
+        <input id="rsvp" name="plus_one_name" value="{{ plus_one_name }}" maxlength="100"/>
+      </label><br />
+      <label>
+        Your guest's dietary restrictions:<br />
+        <input id="rsvp" name="plus_one_dietary_restrictions" value="{{ plus_one_dietary_restrictions }}" maxlength="100"/>
+      </label><br />
+      {% endif %}
+      <p><i>After submitting, please subscribe to our mailing list for important updates.</i></p>
+      <input type="submit" value="Submit RSVP" />
+    </form>
+{% include "footer" %}

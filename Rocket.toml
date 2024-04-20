@@ -1,0 +1,8 @@
+[global]
+address = "::0"
+
+[default.databases.rsvp]
+url = "mysql://user:pass@127.0.0.1:3306/rsvp"
+
+[default.databases.redis]
+url = "redis://127.0.0.1:6379"

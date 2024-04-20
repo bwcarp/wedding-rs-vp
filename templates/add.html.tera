@@ -1,0 +1,32 @@
+{% include "header" %}
+    <form method="post" action="/rsvp/admin/add">
+      <label>
+        What is the guest's name?<br />
+        <input id="rsvp" name="guest_name" maxlength="100"/>
+      </label><br />
+      <fieldset>
+        <legend>Is the guest attending?</legend>
+        <label><input type="radio" id="rsvp" name="accepted" value="yes" required />Attending</label>
+        <label><input type="radio" id="rsvp" name="accepted" value="no" required />Declined</label>
+        <label><input type="radio" id="rsvp" name="accepted" value="NULL" required />No Reply</label>
+      </fieldset><br />
+      <label>
+        Does the guest have dietary restrictions?<br />
+        <input id="rsvp" name="guest_dietary_restrictions" maxlength="100"/>
+      </label><br />
+      <fieldset>
+        <legend>Is the guest allowed a +1?</legend>
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="true" required />Yes</label>
+        <label><input type="radio" id="rsvp" name="plus_one_allowed" value="false" required />No</label>
+      </fieldset><br />
+      <label>
+        +1's name (if allowed):<br />
+        <input id="rsvp" name="plus_one_name" maxlength="100" />
+      </label><br />
+      <label>
+        +1's dietary restrictions:<br />
+        <input id="rsvp" name="plus_one_dietary_restrictions" maxlength="100"/>
+      </label><br />
+      <input type="submit" value="Submit" />
+    </form>
+{% include "footer" %}

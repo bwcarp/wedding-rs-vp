@@ -1,0 +1,31 @@
+{% include "header" %}
+
+<p>Thank you for responding, {{ name }}.</p>
+
+{% if accepted %}
+<p>You have accepted our invitation! Details:</p>
+    {% if dietary == "" %}
+    <p>No dietary restrictions</p>
+    {% else %}
+    <p><b>Dietary restrictions:</b> {{ dietary }}</p>
+    {% endif %}
+    
+    {% if plus_one_allowed %}
+        {% if pone_name != "" %}
+        <p><b>Guest name:</b> {{ pone_name }}</p>
+        {% endif %}
+        {% if pone_dietary != "" %}
+        <p><b>Guest dietary restrictions:</b> {{ pone_dietary }}</p>
+        {% endif %}
+    {% endif %}
+<p><font size="+2"><b>Subscribe to our mailing list for important updates about the wedding. This includes things like shuttle service and schedule.</b></font></p>
+<div><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.1/umd/signup-form.min.js" data-button-color="#000000" data-button-text-color="#FFFFFF" data-site="https://www.blakeandmellie.wedding/" async></script></div>
+<p><i><a href="https://www.blakeandmellie.wedding/rss">You can also RSS feed like a nerd.</a></i></p>
+{% else %}
+<p>You have declined our invitation.</p>
+{% endif %}
+
+<p>Did you make a mistake? <a href="/rsvp/form">Click here</a> to return to the form.</p>
+<p>Save your invite code! You have until August 1st to make changes!</p>
+
+{% include "footer" %}

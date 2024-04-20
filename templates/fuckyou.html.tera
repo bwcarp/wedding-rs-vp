@@ -1,0 +1,10 @@
+{% include "header" %}
+
+{% if failures < 5 %}
+<p>You have failed to login {{ failures }} times. <a href="/rsvp">Click here</a> to try again.</p>
+{% else %}
+<p>Your IP address ({{ ip_addr }}) has failed to log in too many times and you are hereby banned for 24 hours.</p>
+<p>If you're invited to the wedding, please contact Blake to have this reset. If you don't have Blake's info, get it from Mellie. If you don't have her info either, quit trying to hack our wedding page you fucking asshole.</p>
+{% endif %}
+
+{% include "footer" %}

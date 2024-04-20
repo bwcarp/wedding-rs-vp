@@ -1,0 +1,51 @@
+ <style>
+a, h1, h2, h3, h4, h5, h6 {
+  color: #f4eed7;
+}
+html.dark-mode .article-byline-meta .author-name a {
+  color: #f4eed7;
+}
+:where(html.dark-mode) .gh-content a {
+  color: #f4eed7;
+}
+html.dark-mode .gh-content > [id] {
+  color: #f4eed7;
+}
+.site-header-cover {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 1329px;
+  margin: auto;
+}
+@media (min-width: 992px) {
+  .is-head-stacked.has-cover .site-header-content {
+    padding-top: calc(6vmin + 120px);
+    padding-bottom: 5vmin;
+  }
+}
+.has-cover .gh-head-button {
+  background: #f4eed7;
+  color: var(--color-darkgrey);
+}
+.gh-head-menu .nav {
+  color: #f4eed7;
+}
+.gh-head-members {
+    color: #f4eed7;
+}
+.gh-head-actions .gh-search {
+  color: #f4eed7;
+}
+.post-card-title {
+  color: #f4eed7 !important;
+}
+.article-title {
+  color: #f4eed7 !important;
+}
+</style>

@@ -1,0 +1,30 @@
+{% include "header" %}
+
+<p>Guest name: {{ name }}</p>
+<p>Invitation code: {{ invite_code }}.</p>
+
+{% if accepted == "yes" %}
+<p>Marked <b>attending</b>.</p>
+    {% if dietary == "" %}
+    <p>No dietary restrictions</p>
+    {% else %}
+    <p><b>Dietary restrictions:</b> {{ dietary }}</p>
+    {% endif %}
+    
+    {% if plus_one_allowed %}
+        {% if pone_name != "" %}
+        <p><b>Guest name:</b> {{ pone_name }}</p>
+        {% endif %}
+        {% if pone_dietary != "" %}
+        <p><b>Guest dietary restrictions:</b> {{ pone_dietary }}</p>
+        {% endif %}
+    {% endif %}
+{% elif accepted == "no" %}
+<p>Marked <b>declined</b>.</p>
+{% else %}
+<p>Marked <b>no-reply</b>.</p>
+{% endif %}
+
+<p><a href="/rsvp/admin">Return to the admin page.</p>
+
+{% include "footer" %}
