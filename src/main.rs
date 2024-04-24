@@ -116,8 +116,7 @@ async fn set_ip_failure(r: &mut Connection<Redis>, client_ip: Option<IpAddr>) {
 
     let failures = r.get::<&String, i32>(&ip).await;
     if failures.is_ok() {
-        let fail_count = failures.unwrap();
-        let error_msg = r.set::<&String, i32, String>(&ip, fail_count + 1).await;
+        let error_msg: Result<bool, deadpool_redis::redis::RedisError> = r.incr(&ip, 1).await;
         println!("{}", error_msg.unwrap());
     } else {
         let error_msg: Result<String, deadpool_redis::redis::RedisError> = r.set::<&String, i32, String>(&ip, 1).await;
@@ -130,8 +129,7 @@ async fn set_invite_counter(r: &mut Connection<Redis>, invite_code: &String) {
 
     let submissions = r.get::<&String, i32>(&invite_code).await;
     if submissions.is_ok() {
-        let submit_count = submissions.unwrap();
-        let error_msg = r.set::<&String, i32, String>(&invite_code, submit_count + 1).await;
+        let error_msg: Result<bool, deadpool_redis::redis::RedisError> = r.incr(&invite_code, 1).await;
         println!("{}", error_msg.unwrap());
     } else {
         let error_msg: Result<String, deadpool_redis::redis::RedisError> = r.set::<&String, i32, String>(&invite_code, 1).await;
@@ -240,7 +238,6 @@ async fn login(invitation: Form<Invitation>, cookies: &CookieJar<'_>, mut db: Co
     }
 
     let code = invitation.code.clone().replace("-","");
-    println!("{}", code);
 
     use self::schema::guests::dsl::*;
 
