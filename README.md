@@ -2,7 +2,7 @@
 
 ## For Blake & Mellie's Wedding
 
-This was the RSVP portal for wedding website. I took it as an opportunity to learn Rust, therefore it is very bad Rust.
+This was the RSVP portal for our wedding website. I took it as an opportunity to learn Rust, therefore it is very bad Rust.
 
 Things to know about certain pieces:
 
